@@ -48,7 +48,7 @@ const Tabla = () => {
       });
   }, []);
 
-  const activeUsersData = data.filter((user) => user.status === 'active');
+  const activeUsersData = data.filter((user) => user.status === "active");
 
   return (
     <Table columns={columns} dataSource={activeUsersData} loading={loading} />
