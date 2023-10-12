@@ -12,6 +12,7 @@ const columns = [
     title: "Name",
     dataIndex: "name",
     key: "name",
+    sorter: (a, b) => a.name.localeCompare(b.name),
   },
   {
     title: "Email",
@@ -22,6 +23,16 @@ const columns = [
     title: "Gender",
     dataIndex: "gender",
     key: "gender",
+    filters: [
+      { text: "Male", value: "male" },
+      { text: "Female", value: "female" },
+    ],
+    onFilter: (value, record) => record.gender === value,
+    render: (text) => (
+      <span style={{ color: text === "female" ? "purple" : "blue" }}>
+        {text}
+      </span>
+    ),
   },
   {
     title: "Status",
